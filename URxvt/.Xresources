@@ -1,0 +1,55 @@
+!==============================Settings===============================!
+
+
+URxvt*font: xft:Hack:size=12,xft:Source Code Pro:size=12,xft:PowerlineSymbols:size=12
+!URxvt*font: xft:Roboto :size=10
+URxvt*scrollBar: false
+URxvt*scrollTtyKeypress: true
+URxvt*saveLines: 12000
+URxvt.letterSpace: 0 
+
+
+!===========================Customization=============================!
+
+
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: #282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
+
+URxvt*transparent: true
+URxvt*shading: 10
+
+!==========================Extensions================================!
+
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1   
+
+!============================rofi====================================!
+
+rofi.font: Hack 12
+rofi.width: 50
+rofi.fullscreen: false
+rofi.padding: 30
+rofi.opcity: 70
+rofi.color-enabled: true
+rofi.color-window: #1C8AC1, #1C8AC1, #1C8AC1,
+rofi.color-normal: #1C8AC1, #FFFFFF, #1C8AC1, #000055, #FFFFFF
+rofi.color-active: #1C8AC1, #FFFFFF, #1C8AC1, #000055, #FFFFFF
+rofi.color-urgent: #1C8AC1, #FFFFFF, #1C8AC1, #000055, #FFFFFF
