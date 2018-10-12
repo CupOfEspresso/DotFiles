@@ -8,6 +8,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'itchyny/lightline.vim'
+Plugin 'Vimball'
 " Lightline Begin
 if !has('gui_running')
   set t_Co=256

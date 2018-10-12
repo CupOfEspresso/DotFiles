@@ -1,12 +1,10 @@
 !==============================Settings===============================!
 
-
-URxvt*font: xft:Hack:size=12,xft:Source Code Pro:size=12,xft:PowerlineSymbols:size=12
-!URxvt*font: xft:Roboto :size=10
+URxvt*font:xft:xos4 Terminus:size=12
 URxvt*scrollBar: false
 URxvt*scrollTtyKeypress: true
 URxvt*saveLines: 12000
-URxvt.letterSpace: 0 
+URxvt.letterSpace: -3 
 
 
 !===========================Customization=============================!

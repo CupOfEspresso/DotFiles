@@ -7,10 +7,14 @@
                                                                       
 
 [ -z "$PS1" ] && return
+
+printf '\n' 
+neofetch
+
 stty -ixon 
 shopt -s autocd
 
-blu=$(tput setaf 030)
+blu=$(tput setaf 14)
 wht=$(tput setaf 255);
 export PS1="\[${blu}\]\h\[${wht}\] at \[${blu}\]\A \[${wht}\]in \[${wht}\][\[${blu}\]\w\[${wht}\]]\n\[${blu}\]\u\[${wht}\]→\[${end}\] "
 
@@ -20,24 +24,27 @@ bind 'TAB:menu-complete'
 
 # ALIASES
 # For arch based systems
-alias P="sudo pacman"
-alias A="aurman"
+alias p="sudo pacman"
+alias y="yay"
 
 # For Deb based systems
-# alias A="apt"
-# alias Ag="apt-get"
+# alias a="apt"
+# alias ag="apt-get"
 
 # General 
-alias clear="clear && printf '\n' && neofetch --ascii_colors 2 2 --colors 2 4 4 4 2 4 && printf '\n' "
+alias clear="clear && printf '\n' && neofetch"
 alias cls="\clear"
 alias r="ranger"
-alias v="vim"
-alias sv="sudo vim"
+alias svim="sudo nvim"
+alias vim="nvim"
 alias s="sudo"
 alias cd..="cd .."
 alias ls="ls --color=auto"
 alias la="ls -lAh --color=auto"
 alias grep="grep --color=auto"
+alias ncat="tb"  
+alias sel="xclip -o | tb"
+alias wttr="curl nl.wttr.in/Doetinchem?2Q"
 
 # Configs
 alias vimrc="vim ~/.vimrc"
