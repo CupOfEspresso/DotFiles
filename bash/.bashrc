@@ -45,6 +45,7 @@ alias grep="grep --color=auto"
 alias ncat="tb"  
 alias sel="xclip -o | tb"
 alias wttr="curl nl.wttr.in/Doetinchem?2Q"
+alias moon="curl nl.wttr.in/moon"
 
 # Configs
 alias vimrc="vim ~/.vimrc"
