@@ -1,4 +1,5 @@
 #!/bin/sh
+# made by Youri Claes | CupOfEspresso
 
 pacman -Qqent > $HOME/paclist.temp
 cat $HOME/paclist.temp
