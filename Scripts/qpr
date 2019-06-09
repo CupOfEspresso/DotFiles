@@ -1,6 +1,6 @@
 #!/bin/sh
 # Quick read is a pdf reading util for in the terminal
 # It creates a easy the select menu from where to chose pdf from.
-# Made by Youri Claes | CupOfCoffee
+# Made by Youri Claes | CupOfEspresso
 TOREAD=$(ls | egrep "*.pdf" | dmenu -i -l 10 -p "PDF")
 mupdf $TOREAD 
