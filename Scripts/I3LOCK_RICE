@@ -1,5 +1,6 @@
 #!/bin/sh
 # I3LOCK a fancy lock using ffmpeg and i3lock imagemagick
+# Made by Youri Claes | CupOfEspresso
 
 # ffmpeg screenshot
 DEMENSION_W=$(xrandr | grep 'current' | cut -f2 -d"," | sed 's:current ::g' | cut -f2 -d" ")
