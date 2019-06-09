@@ -1,5 +1,7 @@
 #!/bin/sh
+# made by Youri Claes | CupOfEspresso
 # pacman alias
+
 case $1 in
     -Q*) pacman $1 $2 $3 ;;
     -Ss) pacman $1 $2 ;;
