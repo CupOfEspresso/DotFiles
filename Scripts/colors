@@ -1,4 +1,5 @@
 #!/bin/sh
+# Author UNKNOWN
 
 local fgc bgc vals seq0
 
