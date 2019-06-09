@@ -1,4 +1,5 @@
 #!/bin/bash
+# made by Youri Claes | CupOfEspresso
 
 # this script makes a screenshot and moves it to a give directory
 scrot
