@@ -1,4 +1,5 @@
 #!/bin/sh
+# made by Youri Claes | CupOfEspresso
 LIST_WALLP=$(ls | egrep -e "*.png" "*.jpg" | dmenu -i -l 10 -p "Pictures")
 
 
