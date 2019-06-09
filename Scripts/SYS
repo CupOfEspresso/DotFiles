@@ -1,7 +1,7 @@
 #!/bin/sh
 # Systemctl script for I3WM
 # Uses Dmenu
-# By Youri Claes | CupOfCoffee
+# By Youri Claes | CupOfEspresso
 
 OP=$(echo -e "Reboot\nExit\nPoweroff\nSuspend" | dmenu -b -i -p "Systemctl")
 
