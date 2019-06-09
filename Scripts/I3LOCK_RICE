@@ -1,0 +1,22 @@
+#!/bin/sh
+# I3LOCK a fancy lock using ffmpeg and i3lock imagemagick
+
+# ffmpeg screenshot
+DEMENSION_W=$(xrandr | grep 'current' | cut -f2 -d"," | sed 's:current ::g' | cut -f2 -d" ")
+DEMENSION_H=$(xrandr | grep 'current' | cut -f2 -d"," | sed 's:current ::g' | cut -f4 -d" ")
+ffmpeg -f x11grab -s "$DEMENSION_W"x"$DEMENSION_H" -i :0.0 -vframes 1 "$HOME"/i3locked_1.png > /dev/null 2>&1
+
+# imagemagick magic
+ convert -blur 0x4 "$HOME"/i3locked_1.png "$HOME"/i3locked_2.png
+ convert "$HOME"/i3locked_2.png "$HOME"/.config/i3/lock.png -gravity center -composite "$HOME"/i3locked_3.png
+
+# i3lock start
+i3lock -u --image="$HOME"/i3locked_3.png
+
+# remove tmp files
+rm "$HOME"/*.png
+
+
+
+
+

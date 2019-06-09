@@ -1,0 +1,8 @@
+#!/bin/sh
+# pacman alias
+case $1 in
+    -Q*) pacman $1 $2 $3 ;;
+    -Ss) pacman $1 $2 ;;
+    *) sudo pacman $1 $2 $3 ;;
+esac
+

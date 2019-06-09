@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pacman -Qqent > $HOME/paclist.temp
+cat $HOME/paclist.temp

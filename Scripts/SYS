@@ -1,0 +1,17 @@
+#!/bin/sh
+# Systemctl script for I3WM
+# Uses Dmenu
+# By Youri Claes | CupOfCoffee
+
+OP=$(echo -e "Reboot\nExit\nPoweroff\nSuspend" | dmenu -b -i -p "Systemctl")
+
+case $OP in
+
+    Reboot)        systemctl reboot                                                                         ;;
+    Poweroff)      systemctl poweroff                                                                       ;;
+    Suspend)       systemctl suspend                                                                        ;;
+    Exit)          exit                                                                                     ;;
+    *)             echo "That's an incorrect option" | dmenu -b -i -p "Error"& PID=$!; sleep 2; kill $PID   ;;
+
+esac
+    

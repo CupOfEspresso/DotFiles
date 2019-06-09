@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# this script makes a screenshot and moves it to a give directory
+scrot
+mv $HOME/*.png $HOME/Pictures/screenshot

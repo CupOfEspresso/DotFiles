@@ -1,0 +1,5 @@
+#!/bin/sh
+LIST_WALLP=$(ls | egrep -e "*.png" "*.jpg" | dmenu -i -l 10 -p "Pictures")
+
+
+

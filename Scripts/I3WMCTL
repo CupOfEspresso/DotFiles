@@ -1,0 +1,16 @@
+#!/bin/sh
+# I3WMCTL script for I3WM
+# uses Dmenu
+# By Youri Claes | CupOfCoffee
+
+OP=$(echo -e "Restart\nReload\nLock" | dmenu -b -i -p "Systemctl ")
+
+case $OP in
+
+    Restart)       i3-msg restart                                                                           ;;
+    Reload)        i3-msg reload                                                                            ;;
+    Lock)          I3LOCK_RICE                                                                              ;;
+    *)             echo "That's an incorrect option" | dmenu -b -i -p "Error"& PID=$!; sleep 2; kill $PID   ;;
+
+esac
+ 
