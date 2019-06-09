@@ -15,35 +15,30 @@ stty -ixon
 shopt -s autocd
 
 blu=$(tput setaf 14)
-wht=$(tput setaf 255);
-export PS1="\[${blu}\]\h\[${wht}\] at \[${blu}\]\A \[${wht}\]in \[${wht}\][\[${blu}\]\w\[${wht}\]]\n\[${blu}\]\u\[${wht}\]→\[${end}\] "
+wht=$(tput setaf 255)
+# export PS1="\[\e[0;36m\]\u \[\e[0;37m\]on \[\e[0;36m\]\h \[\e[0;37m\]at \[\e[0;36m\]\t \[\e[0;37m\]in \[\e[0;37m\][\[\e[0;36m\]\w\[\e[0;37m\]]\[\e[0;37m\]\\n\[\e[0;37m\]---> \[\e[0m\]"
 
-# other settings
+export PS1="\[\033[00;34m\]\u\[\033[01;33m\]@\[\033[00m\]\[\033[01;35m\]\h\[\033[00m\]\[\033[01;33m\] \w \[\033[00m\]\[\033[01;36m\]$ \[\033[00m\]"
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
 # ALIASES
-# For arch based systems
-alias p="sudo pacman"
+# I have a script for my pacman alias
 alias y="yay"
-
-# For Deb based systems
-# alias a="apt"
-# alias ag="apt-get"
-
-# General 
 alias clear="clear && printf '\n' && neofetch"
 alias cls="\clear"
 alias r="ranger"
 alias svim="sudo nvim"
+alias sv="sudo nvim"
 alias vim="nvim"
+alias v="nvim"
 alias s="sudo"
 alias cd..="cd .."
 alias ls="ls --color=auto"
 alias la="ls -lAh --color=auto"
 alias grep="grep --color=auto"
-alias ncat="tb"  
-alias sel="xclip -o | tb"
+alias tb="nc termbin.com 9999"
+alias sel="xclip -o | nc termbin.com 9999 | xsel -b"
 alias wttr="curl nl.wttr.in/Doetinchem?2Q"
 alias moon="curl nl.wttr.in/moon"
 
@@ -51,4 +46,6 @@ alias moon="curl nl.wttr.in/moon"
 alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
 alias i3="vim ~/.config/i3/config"
-alias term="vim ~/config/alacritty/config"
+alias term="vim ~/.config/alacritty/alacritty.yml"
+alias config="vim ~/.config"
+alias pbcfg="vim ~/.config/polybar/config"
