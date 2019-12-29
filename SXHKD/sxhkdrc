@@ -1,0 +1,65 @@
+#### SXHKD config used for i3 ####
+# keybindigs by Youri Claes | CupOfEspresso
+
+super + Return
+    exec alacritty
+
+super + Shift_L + Q
+    i3-msg kill
+
+Menu
+    dmenu_run
+
+#### Windows control ####
+# using i3-msg 
+
+super + {h, j, k, l}
+    i3-msg focus {left, down, up, right}
+    
+super + Shift_L + {H, J, K, L}
+    i3-msg move {left, down, up, right}
+
+super + Shift_L + {V, O}
+    i3-msg {split h, split v}
+
+super + f
+    i3-msg fullscreen toggle
+
+super + s
+    i3-msg layout stacking
+
+super + w
+    i3-msg layout tabbed
+super + e
+    i3-msg layout toggle split
+
+super + Shift_L + space
+    i3-msg floating toggle
+
+super + space
+    i3-msg focus mode_toggle
+
+super + {o, i, u, y}
+    i3-msg {resize shrink width, resize grow height, resize shrink height, resize grow width} 1 px or 1 ppt
+
+#### Menu control ####
+super + Shift_L + X
+    SYS
+
+super + Shift_L + Z
+    I3WMCTL
+
+super + Shift_L + U
+    xclip -o | nc termbin.com 9999 | xsel -b
+
+Print
+    ScrotToScrotDir
+
+super + Shift_L + minus
+    i3-msg move scratchpad
+
+super + minus
+    i3-msg scratchpad show
+
+super + c
+    brave-dev
