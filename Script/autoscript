@@ -1,0 +1,13 @@
+#!/bin/sh
+# This script automatically makes a script ready
+# Made by Youri Claes | CupOfEspresso
+
+touch $HOME/Scripts/$1
+chmod +x $HOME/Scripts/$1
+
+echo "#!/bin/sh" > $HOME/Scripts/$1
+echo "# This script ..." >> $HOME/Scripts/$1
+echo "# Made by Youri Claes | CupOfEspresso" >> $HOME/Scripts/$1
+
+nvim $HOME/Scripts/$1
+

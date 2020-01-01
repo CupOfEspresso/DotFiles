@@ -41,6 +41,7 @@ alias tb="nc termbin.com 9999"
 alias sel="xclip -o | nc termbin.com 9999 | xsel -b"
 alias wttr="curl nl.wttr.in/Doetinchem?2Q"
 alias moon="curl nl.wttr.in/moon"
+alias clock="tty-clock -cs -C 4"
 
 # Configs
 alias vimrc="vim ~/.vimrc"
@@ -49,3 +50,4 @@ alias i3="vim ~/.config/i3/config"
 alias term="vim ~/.config/alacritty/alacritty.yml"
 alias config="vim ~/.config"
 alias pbcfg="vim ~/.config/polybar/config"
+#alias git="cd $HOME/Git; git $1"

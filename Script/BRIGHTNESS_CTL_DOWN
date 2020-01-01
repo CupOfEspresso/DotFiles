@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+import os
+
+f =open("/home/youri/.temp/XRANDR_SCREEN_BRIGHTNESS.temp", "r+")
+current_Brightness= f.read()
+f.close()
+
+if float(current_Brightness) > 0.1000000000000000000000000000001 :
+    new_Brightness = float(current_Brightness) - 0.1
+    os.system("xrandr --output DVI-I-1 --brightness " + str(new_Brightness))
+    f =open("/home/youri/.temp/XRANDR_SCREEN_BRIGHTNESS.temp", "w+")
+    f.write(str(new_Brightness))
+    f.close()
+    quit()
+else:
+    print("Error: Maximum value reached")
+    quit()
+

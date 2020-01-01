@@ -1,0 +1,15 @@
+#!/bin/sh
+# This script is a CLI login manager
+# Made by Youri Claes | CupOfEspresso
+
+\clear
+printf "\e[31m"
+figlet -f Broadway -tc Hello $USER
+printf "\e[00m"
+printf "\nPlease Choose:\n(G)raphical | (C)ommand Line\n"
+read M
+if [ $M = 'g' ] || [ $M = 'G' ] ; then 
+    startx
+else
+    clear && printf '\n' && neofetch
+fi

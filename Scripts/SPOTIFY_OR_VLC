@@ -1,0 +1,18 @@
+#!/bin/sh
+# This script automatically goes to a desktop and opens either spotify or vlc
+# Made by Youri Claes | CupOfEspresso
+
+i3-msg workspace 10
+
+ps cax | grep -e "spotify" || ps cax | grep -e "vlc"
+
+if [ $? -ne 0 ] ; then
+    MUSIC=$(echo -e "Spotify\nVLC" | dmenu -i -p "Music client")
+
+    case $MUSIC in
+        [Ss]potify)        spotify ;;
+        [Vv][Ll][Cc])            vlc ;;
+        *)                 echo "That Music client isn't supported" | dmenu -i -p "Error"& PID=$!; sleep 1; kill $PID  ;;
+    esac
+fi
+    

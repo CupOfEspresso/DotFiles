@@ -1,12 +1,15 @@
 #!/bin/sh
-# Systemctl script for I3WM
-# Uses Dmenu
+# I3WMCTL script for I3WM
+# uses Dmenu
 # By Youri Claes | CupOfCoffee
 
-OP=$(echo -e "Reboot\nExit\nPoweroff\nSuspend" | dmenu -b -i -p "Systemctl")
+OP=$(echo -e "Restart\nReload\nLock\nReboot\nExit\nPoweroff\nSuspend" | dmenu -b -i -p "Totalctl")
 
 case $OP in
 
+    Restart)       restart-all                                                                          ;;
+    Reload)        i3-msg reload                                                                            ;;
+    Lock)          I3LOCK_RICE                                                                              ;;
     Reboot)        systemctl reboot                                                                         ;;
     Poweroff)      systemctl poweroff                                                                       ;;
     Suspend)       systemctl suspend                                                                        ;;
@@ -14,4 +17,4 @@ case $OP in
     *)             echo "That's an incorrect option" | dmenu -b -i -p "Error"& PID=$!; sleep 2; kill $PID   ;;
 
 esac
-    
+ 

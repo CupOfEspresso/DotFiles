@@ -1,0 +1,131 @@
+#!/bin/sh
+
+MAAND=$(awk '{ NR==1 } { print $2 }' ~/.config/UVD/UVDrc)
+exit_loop(){
+    EX=$1
+    if [ $EX = "q" ] || [ $EX = "Q" ] ; then
+        exit
+    fi
+}
+prompt(){
+    \clear
+    figlet UrenVeldDienst
+    printf "\n"
+}
+menu()
+{
+    prompt
+    printf "Wat wil je doen:\nUren (i)nvullen\nUren (t)ellen\nVDA (l)egen\n"
+    read INPUT
+    case $INPUT in
+        [Ii])  uren_invullen ;;
+        [Tt])  uren_tellen ;;
+        [Ll])  leeg_vda ;;
+        [Qq])  exit ;;
+        *)  echo "ERROR: geen juist keuze"; menu ;; 
+    esac
+}
+uren_invullen() {
+    prompt
+    printf "Hoe veel uur heb je gemaakt: "
+    read UUR
+    exit_loop $UUR
+    printf "[MA, DI, WO, DO, VR, ZA, ZO]\n"
+    printf "Wanneer heb je dat gedaan: "
+    read IN
+    case $IN in 
+        MA)  WANNEER="maandag's" ;;
+        DI)  WANNEER="dinsdag's" ;;
+        WO)  WANNEER="woensdag's" ;;
+        DO)  WANNEER="donderdag's" ;;
+        VR)  WANNEER="vrijdag's" ;;
+        ZA)  WANNEER="zaterdag's" ;;
+        ZO)  WANNEER="zondag's" ;;
+        [Qq])  exit ;;
+         *)  printf "ERROR: geen juiste keuze"; uren_invullen ;;
+    esac
+    
+    printf "Heb je verspreiding? Zo ja hoeveel?\n[geen verspreiding = x]"
+    read IN_VERSP
+
+    if [ $IN_VERSP = "x" ] ; then
+        VERSP="geen"
+    else
+        VERSP=$IN_VERSP
+    fi
+    
+    if [ $UUR -le 1 ] ; then
+        printf "Dus je hebt $WANNEER $UUR uur gemaakt? En $VERSP verspreiding.\n Ja of Nee: "
+    else
+        printf "Dus je hebt $WANNEER $UUR uren gemaakt?\n En $VERSP verspreiding. Ja of Nee: "
+    fi
+    read KEUZE
+    
+    if [ $KEUZE = "nee" ] || [ $KEUZE = "n" ]; then
+        uren_invullen
+        break
+    else
+        echo "$UUR                     $WANNEER                     $VERSP" >> $HOME/.config/UVD/VDA
+        printf "VDA is bijgewerkt"
+        sleep 2
+        menu
+        break
+    fi 
+
+}
+c_uren_tellen() {
+    T_UREN=$(awk '{ sum+=$1 } END { print sum }' ~/.config/UVD/VDA)
+    T_VERSP=$(awk '{ sum+=$3 } END { print sum }' ~/.config/UVD/VDA)
+    printf "Je hebt in de maand $MAAND:\n$T_UREN uren en $T_VERSP verspreidingen" 
+}
+uren_tellen() {
+    prompt
+    c_uren_tellen
+    sleep 4
+    menu
+}
+c_leeg_vda(){
+    W_MAAND=$1
+    case $W_MAAND in
+            JAN) N_MAAND="januari";;
+            FEB) N_MAAND="febuari";;
+            MAR) N_MAAND="maart";;
+            APR) N_MAAND="april";;
+            MEI) N_MAAND="mei";;
+            JUN) N_MAAND="juni";;
+            JUL) N_MAAND="juli";;
+            AUG) N_MAAND="augustus";;
+            SEP) N_MAAND="september";;
+            OKT) N_MAAND="oktober";;
+            NOV) N_MAAND="november";;
+            DEC) N_MAAND="december";;
+            *)  printf "ERROR: geen juiste keuze"; leeg_vda ;;
+        esac
+    sed -i "s|$MAAND|$N_MAAND|g" ~/.config/UVD/UVDrc 
+    printf "De maand is bijgewerkt\n"
+}
+leeg_vda(){
+    prompt
+    > $HOME/.config/UVD/VDA
+    echo "Tijd:                  Verspreidingen:                 Wanneer: " >> $HOME/.config/UVD/VDA
+    printf "VDA gelegt.\nAls het een nieuwe maand is type (n) anders typ niks: "
+    read VDA_IN
+    if [ $VDA_IN = "n" ] ; then
+        printf "Welke maand is het dan?\nJAN; FEB; MAR; APR; MEI; JUN; JUL; AUG; SEP; OKT; NOV; DEC;\n"
+        read W_MAAND
+        exit_loop $W_MAAND
+        c_leeg_vda $W_MAAND
+        sleep 2
+        menu
+    else
+        menu
+    fi
+}
+
+case $1 in
+    -t) c_uren_tellen; printf "\n" ; exit ;;
+    -m) c_leeg_vda $2; exit;;
+    -h) printf " -t: tel alleen de uren GEEN GUI interface\n -m: verander de maand UVD -m [MND]\n -h: laat deze pagina zien\n"; exit ;;
+     *) printf "ERROR: geen juiste keuze" ;;
+esac
+menu

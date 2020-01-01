@@ -1,0 +1,8 @@
+#!/bin/sh
+# This script takes your highlighted text and searches with it in your DEFAULT browser
+# Made by Youri Claes | CupOfEspresso
+
+SEL=$(xclip -o)
+# if the name of your browser isn't a search command please use the appropriate command here, instead of The shell variable
+
+$BROWSER https://www.google.nl/search\?q="$SEL"

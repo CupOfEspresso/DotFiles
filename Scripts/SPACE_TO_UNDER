@@ -1,0 +1,14 @@
+#!/bin/sh
+# This script ...
+# Made by Youri Claes | CupOfEspresso
+
+echo "$@" > "$HOME"/SPACE_TO_UNDER.temp
+
+OLD_NAME=$(awk '{ print }' "$HOME"/SPACE_TO_UNDER.temp)
+
+sed -i 's/\ /_/g' "$HOME"/SPACE_TO_UNDER.temp
+
+NEW_NAME=$(awk '{ print }' "$HOME"/SPACE_TO_UNDER.temp)
+
+mv "$OLD_NAME" "$NEW_NAME"
+rm *.temp

@@ -1,0 +1,11 @@
+#!/bin/sh
+# This script this is the command line script for changing the brightness
+# Made by Youri Claes | CupOfEspresso
+
+WHICH_SCREEN=$(xrandr | grep " connected" | cut -f1 -d " ")
+
+xrandr --output $WHICH_SCREEN --brightness $1
+
+echo $1 > $HOME/.temp/XRANDR_SCREEN_BRIGHTNESS.temp
+
+

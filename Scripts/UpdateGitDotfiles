@@ -1,0 +1,29 @@
+#!/bin/sh
+# This script automatically updates the file in the dotfiles repo
+# Made by Youri Claes | CupOfEspresso
+
+DOTFILE="$HOME/Git/DotFiles"
+CONFIG="$HOME/.config"
+
+rm -rf $DOTFILE/alacritty; cp -R $CONFIG/alacritty $DOTFILE
+
+cp $HOME/.bashrc $DOTFILE/bash/.bashrc
+cp $HOME/.bash_profile $DOTFILE/bash/.bash_profile
+
+rm -rf $DOTFILE/i3; cp -R $CONFIG/i3 $DOTFILE/i3
+
+cp $CONFIG/neofetch/config.conf $DOTFILE/neofetch/config.conf
+
+rm -rf $DOTFILE/Scripts; cp -R $HOME/Scripts/Scripts $DOTFILE/Scripts
+
+cp $CONFIG/sxhkd/sxhkdrc $DOTFILE/SXHKD/sxhkdrc
+
+cp $HOME/.vimrc $DOTFILE/vim/.vimrc
+
+# cp $HOME/.Xdefault $DOTFILE/bash/.Xdefault
+
+
+
+
+
+

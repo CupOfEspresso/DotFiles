@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# this script makes a screenshot and moves it to a give directorya
+
+#echo "$(date)" > "$HOME"/SPACE_TO_UNDER.temp
+#sed -i 's/\ /_/g' "$HOME"/SPACE_TO_UNDER.temp
+#DATE_FORMAT=$(awk '{ print }' "$HOME"/SPACE_TO_UNDER.temp)
+#rm *.temp
+
+
+#DEMENSION_W=$(xrandr | grep 'current' | cut -f2 -d"," | sed 's:current ::g' | cut -f2 -d" ")
+#DEMENSION_H=$(xrandr | grep 'current' | cut -f2 -d"," | sed 's:current ::g' | cut -f4 -d" ")
+#ffmpeg -f x11grab -s "$DEMENSION_W"x"$DEMENSION_H" -i :0.0 -vframes 1 "$HOME"/Pictures/screenshot/"$DATE_FORMAT".png
+
+xwd -root -out "$HOME"/test.xwd
+convert test.xwd $(date +"%Y-%m-%d.png")

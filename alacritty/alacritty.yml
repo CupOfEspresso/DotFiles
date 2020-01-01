@@ -20,8 +20,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 80
-    lines: 24
+    columns: 180
+    lines: 64
 
   # Window padding (changes require restart)
   #
@@ -54,7 +54,7 @@ scrolling:
   # to allow mouse scrolling for applications like `man`.
   #
   # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
+  scrolling.multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
   auto_scroll: false
@@ -101,6 +101,7 @@ font:
   # Italic font face
   italic:
     family: monospace
+
     # The `style` can be specified to pick a specific face.
     # style: Italic
 
@@ -124,15 +125,15 @@ font:
   # screens and make reading text a little easier.
   # On X11 it is possible to change the DPI for each instance of alacritty by using
   # `WINIT_HIDPI_FACTOR=1.0 alacritty` to scale the font.
-  scale_with_dpi: true
-
+  #  scale_with_dpi: true
+  #
 # Display the time it takes to redraw each frame.
-render_timer: false
+debug.render_timer: false
 
 # Use custom cursor colors. If `true`, the `colors.cursor.foreground` and
 # `colors.cursor.background` colors will be used to display the cursor.
 # Otherwise the cell colors are inverted for the cursor.
-custom_cursor_colors: false
+colors.cursor.background: true
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
@@ -273,7 +274,7 @@ selection:
 
 dynamic_title: true
 
-hide_cursor_when_typing: false
+mouse.hide_when_typing: false
 
 # Cursor style
 #
@@ -281,11 +282,11 @@ hide_cursor_when_typing: false
 #   - Block
 #   - Underline
 #   - Beam
-cursor_style: Block
+cursor.style: Underline
 
 # If this is `true`, the cursor will be rendered as a hollow box when the
 # window is not focused.
-unfocused_hollow_cursor: true
+cursor.unfocused_hollow: true
 
 # Live config reload (changes require restart)
 live_config_reload: true

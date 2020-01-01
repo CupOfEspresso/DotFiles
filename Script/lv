@@ -1,0 +1,7 @@
+#!/bin/sh
+# This script list al files and open the one you select in vim or nvim
+# Made by Youri Claes | CupOfEspresso
+
+FILE=$(ls | dmenu -i -l 10 -p "Files")
+
+nvim $FILE
